@@ -34,7 +34,7 @@ namespace PRG_Project_Classes_Dewi
             switch (Option.ToLower())
             {
                 case "cup":
-                    basePrice = 4.00 + (Scoop - 1) * 1.50; //Extra $1.50 for each extra scoop
+                    basePrice = 4.00 + (Scoops - 1) * 1.50; //Extra $1.50 for each extra scoop
                     break;
                 case "cone":
                     basePrice = 4.00 + (Scoops - 1) * 1.50;
@@ -50,7 +50,7 @@ namespace PRG_Project_Classes_Dewi
             //Add extra cost for premium flav
             foreach (var flavour in Flavours)
             {
-                if (flavour.IsPremium)
+                if (flavour.Premium)
                 {
                     basePrice += 2.00;
                 }
