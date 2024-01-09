@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRG_Project_Classes_Dewi
 {
-    class IceCream
+    abstract class IceCream
     {
         //Properties
         public string Option { get; set; }
@@ -26,7 +26,7 @@ namespace PRG_Project_Classes_Dewi
         }
 
         //Methods
-        public double CalculatePrice()
+        public virtual double CalculatePrice()
         {
             double basePrice = 0;
 
