@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +37,11 @@ namespace S10262519_PRG2Assignment
         public bool IsBirthday()
         {
             return DateOfBirth.Month == DateTime.Today.Month && DateOfBirth.Day == DateTime.Today.Day;
+        }
+
+        public override string ToString()
+        {
+            return $"Customer: {Name}, Member ID: {MemberId}, Date of Birth: {DateOfBirth.ToString("d")}, Rewards: {Rewards}";
         }
     }
 
