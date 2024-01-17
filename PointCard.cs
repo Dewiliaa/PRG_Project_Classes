@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,42 +8,78 @@ namespace S10262519_PRG2Assignment
 {
     class PointCard
     {
-        public int Points { get; private set; }
-        public int PunchCardProgress { get; private set; }
-        public string Tier { get; private set; }
+        public int Points { get; set; }
+        public int PunchCard { get; set; }
+        public string Tier { get; set; }
 
+        // Default constructor
         public PointCard()
         {
-            
+            Points = 0;
+            PunchCard = 0;
+            Tier = "Ordinary";
         }
 
-        public PointCard(int initialPoints, int initialPunchCardProgress, string initialTier)
+        // Parameterized constructor
+        public PointCard(int points, int punchCard)
         {
-            Points = initialPoints;
-            PunchCardProgress = initialPunchCardProgress;
-            Tier = initialTier;
+            Points = points;
+            PunchCard = punchCard;
+            MemberTier();
         }
 
-        public void AddPoints(int pointsToAdd)
+        // Method to add points to the point card
+        public void AddPoints(int amount)
         {
-            Points += pointsToAdd;
+            Points += amount;
+            MemberTier();
         }
 
-        public void RedeemPoints(int pointsToRedeem)
+        // Method to redeem points from the point card
+        public bool RedeemPoints(int amount)
         {
-            if (Points >= pointsToRedeem)
+            if (Points >= amount)
             {
-                Points -= pointsToRedeem;
+                Points -= amount;
+                MemberTier();
+                return true;
+            }
+            return false;
+        }
+
+        // Method to punch the punch card
+        public void Punch()
+        {
+            PunchCard++;
+            if (PunchCard == 10)
+            {
+                PunchCard = 0;
+            }
+        }
+
+        // Method to set the membership tier based on points
+        private void MemberTier()
+        {
+            if (Points >= 100)
+            {
+                Tier = "Gold";
+            }
+            else if (Points >= 50)
+            {
+                Tier = "Silver";
             }
             else
             {
-               
+                Tier = "Ordinary";
             }
         }
 
-        public void Punch()
+        // Override ToString method for better representation
+        public override string ToString()
         {
-            PunchCardProgress++;
+            return $"Points: {Points}, Punch Card: {PunchCard}, Tier: {Tier}";
         }
     }
+
 }
+
