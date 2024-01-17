@@ -74,7 +74,7 @@ namespace S10262519_PRG2Assignment
             }
         }
 
-        // Override ToString method for better representation
+    
         public override string ToString()
         {
             return $"Points: {Points}, Punch Card: {PunchCard}, Tier: {Tier}";
