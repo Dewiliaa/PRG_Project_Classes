@@ -10,24 +10,23 @@ namespace S10262519_PRG2Assignment
     {
         public string Name { get; private set; }
         public int MemberId { get; private set; }
-        public DateTime DateOfBirth { get; private set; }
+        public DateTime DOB { get; private set; }
         public Order CurrentOrder { get; private set; }
         public List<Order> OrderHistory { get; private set; } = new List<Order>();
         public PointCard Rewards { get; private set; }
 
         public Customer()
         {
-         
         }
 
-        public Customer(string name, int memberId, DateTime dateOfBirth)
+        public Customer(string name, int memberId, DateTime dob)
         {
             Name = name;
             MemberId = memberId;
-            DateOfBirth = dateOfBirth;
-            Rewards = new PointCard(); 
+            DOB = dob;
+            Rewards = new PointCard();
         }
-
+            
         public Order MakeOrder()
         {
             CurrentOrder = new Order();
@@ -36,13 +35,12 @@ namespace S10262519_PRG2Assignment
 
         public bool IsBirthday()
         {
-            return DateOfBirth.Month == DateTime.Today.Month && DateOfBirth.Day == DateTime.Today.Day;
+            return DOB.Month == DateTime.Today.Month && DOB.Day == DateTime.Today.Day;
         }
 
         public override string ToString()
         {
-            return $"Customer: {Name}, Member ID: {MemberId}, Date of Birth: {DateOfBirth.ToString("d")}, Rewards: {Rewards}";
+            return $"Customer: {Name}, Member ID: {MemberId}, Date of Birth: {DOB.ToString("d")}, Rewards: {Rewards}";
         }
     }
-
 }
